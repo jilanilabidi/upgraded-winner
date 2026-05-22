@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système Anti-Collision UWB - Présentation</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-warning: #f59e0b;
+            --accent-danger: #ef4444;
+            --accent-success: #10b981;
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            width: 100%;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 2rem 0;
+        }
+
+        /* Styles du Diaporama / Carrousel */
+        .slider-container {
+            position: relative;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .slides {
+            display: none;
+            height: 450px;
+            padding: 3rem;
+            box-sizing: border-box;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Rendre la diapo active visible */
+        .active-slide {
+            display: flex;
+        }
+
+        .slide-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-warning);
+            padding-bottom: 0.5rem;
+        }
+
+        .slide-content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        /* Boutons de navigation */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Points de navigation (dots) */
+        .dots-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active-dot, .dot:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Section Spécifications / Tableau */
+        .specs-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .specs-section h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .zone-warning {
+            color: var(--accent-warning);
+            font-weight: bold;
+        }
+
+        .zone-danger {
+            color: var(--accent-danger);
+            font-weight: bold;
+        }
+
+        .zone-safe {
+            color: var(--accent-success);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Système Anti-Collision Industriel</h1>
+        <p>Sécurité active pour chariots élévateurs basée sur la technologie UWB</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- CARROUSEL DE DIAPOSITIVES -->
+        <div class="slider-container">
+            
+            <!-- Diapo 1 -->
+            <div class="slides active-slide">
+                <div class="slide-title">1. Introduction au Projet</div>
+                <div class="slide-content">
+                    <p>Développement d'une solution technologique de pointe pour prévenir les accidents entre engins de manutention dans les zones industrielles et les entrepôts à forte activité.</p>
+                </div>
+            </div>
+
+            <!-- Diapo 2 -->
+            <div class="slides">
+                <div class="slide-title">2. Technologie Ultra-Wideband (UWB)</div>
+                <div class="slide-content">
+                    <p>Utilisation de modules de communication radio à bande ultra-large pour mesurer les distances en temps réel avec une précision centimétrique (technologie Two-Way Ranging).</p>
+                </div>
+            </div>
+
+            <!-- Diapo 3 -->
+            <div class="slides">
+                <div class="slide-title">3. Architecture du Système</div>
+                <div class="slide-content">
+                    <p>Intégration d'un module de traitement avec affichage embarqué (OLED) pour le conducteur et d'un système d'alerte connecté aux commandes de vitesse de l'engin.</p>
+                </div>
+            </div>
+
+            <!-- Diapo 4 -->
+            <div class="slides">
+                <div class="slide-title">4. Gestion Dynamique des Zones</div>
+                <div class="slide-content">
+                    <p>Le système surveille en permanence l'espace environnant et applique des règles strictes en fonction de la proximité des autres chariots pour garantir une sécurité maximale.</p>
+                </div>
+            </div>
+
+            <!-- Boutons de navigation -->
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- POINTS DE NAVIGATION -->
+        <div class="dots-container">
+            <span class="dot active-dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <!-- TABLEAU DES CONFIGURATIONS DE SÉCURITÉ -->
+        <div class="specs-section">
+            <h2>Configuration des Seuils de Sécurité</h2>
+            <p>Le système applique automatiquement les actions suivantes dès qu'un autre chariot est détecté :</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zone de distance</th>
+                        <th>Seuil</th>
+                        <th>Action Système</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="zone-safe">Zone de Sécurité</td>
+                        <td>Plus de 5 mètres</td>
+                        <td>Fonctionnement normal, affichage de la distance sur l'écran.</td>
+                    </tr>
+                    <tr>
+                        <td class="zone-warning">Zone d'Alerte</td>
+                        <td>À partir de 5 mètres</td>
+                        <td>Signal visuel/sonore et <strong>ralentissement automatique</strong> de l'engin.</td>
+                    </tr>
+                    <tr>
+                        <td class="zone-danger">Zone de Danger</td>
+                        <td>À partir de 3 mètres</td>
+                        <td><strong>Arrêt d'urgence complet</strong> et immédiat du chariot élévateur.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+<!-- SECTION DE CAPTURE DES VISITEURS -->
+<div class="specs-section" style="margin-top: 2rem; border-top: 4px solid var(--primary-color);">
+    <h2>Formulaire d'intérêt - Système Anti-Collision</h2>
+    <p>Vous souhaitez en savoir plus, obtenir les plans de câblage, le code ou adapter ce système à vos chariots élévateurs ? Laissez vos coordonnées pour recevoir les informations.</p>
+    
+    <form action="https://formspree.io/f/xykvwvdd" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin-top: 1.5rem;">
+        
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-weight: bold; font-size: 0.9rem;">Nom complet ou Entreprise :</label>
+            <input type="text" name="Nom" placeholder="Ex: Jean Dupont / Société Logistique" required style="padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-weight: bold; font-size: 0.9rem;">Adresse Email :</label>
+            <input type="email" name="_replyto" placeholder="Ex: jean.dupont@email.com" required style="padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-weight: bold; font-size: 0.9rem;">Votre besoin ou message (Optionnel) :</label>
+            <textarea name="Message" placeholder="Ex: Bonjour, je souhaiterais tester ce système UWB sur une flotte de 3 chariots..." rows="4" style="padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: inherit;"></textarea>
+        </div>
+
+        <!-- Protection anti-spam optionnelle fournie par Formspree -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" style="background-color: var(--primary-color); color: white; padding: 14px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s;">
+            Envoyer ma demande et m'enregistrer
+        </button>
+    </form>
+</div>
+
+    </div>
+
+    <!-- SCRIPT POUR FAIRE FONCTIONNER LE DIAPORAMA -->
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slides');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            // Gérer les boucles (si on dépasse la fin ou le début)
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+
+            // Masquer toutes les diapos et enlever la classe active des points
+            slides.forEach(slide => slide.classList.remove('active-slide'));
+            dots.forEach(dot => dot.classList.remove('active-dot'));
+
+            // Afficher la diapo actuelle
+            slides[currentSlideIndex].classList.add('active-slide');
+            dots[currentSlideIndex].classList.add('active-dot');
+        }
+
+        function moveSlide(step) {
+            currentSlideIndex += step;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+    </script>
+
+</body>
+</html>
